@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Text, View, ScrollView } from "react-native";
 import SubmitButton from "../Components/Auth/SubmitButton";
 import UserInput from "../Components/Auth/UserInput";
