@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Text, View, TextInput } from "react-native";
+import { Text, View, TextInput, TouchableOpacity, Button } from "react-native";
+import SubmitButton from "../Components/Auth/SubmitButton";
 import UserInput from "../Components/Auth/UserInput";
+
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -40,6 +42,9 @@ const Signup = () => {
         autoCompleteType="password"
         name="Password"
       />
+
+      
+      <SubmitButton title="Sign up"/>
 
       <Text>{JSON.stringify({ name, email, password }, null, 4)}</Text>
     </View>
