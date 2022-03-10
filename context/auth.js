@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import React, { useState, useEffect, createContext } from "react";
+import {API} from "../config";
 
 const AuthContext = createContext();
 
@@ -10,10 +11,15 @@ const AuthProvider = ({ children }) => {
     token: "",
   });
 
+  // config axios
+
+  axios.defaults.baseURL = API;
+
   useEffect(() => {
     const loadFromAsyncStorage = async () => {
-      let data = await AsyncStorage.getItem("@Auth");
+      let data = await AsyncStorage.getItem("@auth");
       const as = JSON.parse(data);
+
       setState({ ...state, user: as.user, token: as.token });
     };
     loadFromAsyncStorage();

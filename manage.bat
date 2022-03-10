@@ -1,3 +1,3 @@
 git add .
-git commit -m "managing auth context "
+git commit -m "added homepage screen and navigation "
 git push -u origin main

@@ -8,13 +8,16 @@ import axios from "axios";
 
 import CircleLogo from "../Components/Auth/CircleLogo";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { API } from "../config";
+import { AuthContext } from "../context/auth";
 
 const Signup = ({ navigation }) => {
   const [name, setName] = useState("adarsha");
   const [email, setEmail] = useState("adarsh@gmail.com");
   const [password, setPassword] = useState("ajsdjlak");
   const [loading, setLoading] = useState(false);
+
+  //context
+  const [state, setState] = useContext(AuthContext);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -25,7 +28,7 @@ const Signup = ({ navigation }) => {
       return;
     }
     try {
-      const { data } = await axios.post(`${API}/signup`, {
+      const { data } = await axios.post(`/signup`, {
         name,
         email,
         password,
@@ -34,10 +37,15 @@ const Signup = ({ navigation }) => {
         alert(data.error);
         setLoading(false);
       } else {
+        // saving in context
+        //context
+        setState(data);
+
         // save response in async storage
         await AsyncStorage.setItem("@auth", JSON.stringify(data));
         setLoading(false);
         alert("Sign up successful");
+        navigation.navigate("Home")
       }
     } catch (error) {
       alert("signup failed try again");
