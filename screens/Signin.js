@@ -6,8 +6,9 @@ import CircleLogo from "../Components/Auth/CircleLogo";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import axios from "axios";
+import { API } from "../config";
 
-const Signin = ({navigation}) => {
+const Signin = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,16 +18,21 @@ const Signin = ({navigation}) => {
     if (!email || !password) {
       alert("All fields are required");
       setLoading(false);
-      console.log( email, password);
+      console.log(email, password);
       return;
     }
     try {
-      const { data } = await axios.post("http://192.168.1.12:8000/api/signin", {
+      const { data } = await axios.post(`${API}/signin`, {
         email,
         password,
       });
-      console.log("Signin success", data);
-      alert("Signin success");
+      if (data.error) {
+        alert(data.error);
+        setLoading(false)
+      } else {
+        console.log("Signin success", data);
+        alert("Signin success");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +47,7 @@ const Signin = ({navigation}) => {
             fontSize: 24,
             color: "#333",
             textAlign: "center",
-            marginVertical:25,
+            marginVertical: 25,
           }}
         >
           Please Sign in
@@ -75,10 +81,23 @@ const Signin = ({navigation}) => {
           }}
         >
           Not yet registered?{" "}
-          <Text onPress={() => navigation.navigate("Signup")} style={{ fontSize: 12, color: "red" }}>Sign Up</Text>
-          
+          <Text
+            onPress={() => navigation.navigate("Signup")}
+            style={{ fontSize: 12, color: "red" }}
+          >
+            Sign Up
+          </Text>
         </Text>
-        <Text style={{ marginVertical:25, textAlign: "center",fontSize: 12, color: "orange" }}>Forgot Password?</Text>
+        <Text
+          style={{
+            marginVertical: 25,
+            textAlign: "center",
+            fontSize: 12,
+            color: "orange",
+          }}
+        >
+          Forgot Password?
+        </Text>
       </View>
     </KeyboardAwareScrollView>
   );

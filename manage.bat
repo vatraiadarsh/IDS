@@ -1,3 +1,3 @@
 git add .
-git commit -m "connected client & server"
+git commit -m "handled error"
 git push -u origin main

@@ -7,9 +7,9 @@ import axios from "axios";
 
 import CircleLogo from "../Components/Auth/CircleLogo";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { API } from "../config";
 
-
-const Signup = ({navigation}) => {
+const Signup = ({ navigation }) => {
   const [name, setName] = useState("adarsha");
   const [email, setEmail] = useState("adarsh@gmail.com");
   const [password, setPassword] = useState("ajsdjlak");
@@ -20,21 +20,25 @@ const Signup = ({navigation}) => {
     if (!name || !email || !password) {
       alert("All fields are required");
       setLoading(false);
-     
+
       return;
     }
     try {
-      const { data } = await axios.post("http://192.168.1.12:8000/api/signup", {
+      const { data } = await axios.post(`${API}/signup`, {
         name,
         email,
         password,
-      });
-
-      console.log("Signup request",name, email, password);
-      setLoading(false);
-      console.log("Signin success", data);
-      alert("Signup success");
+      }); 
+      if (data.error) {
+        alert(data.error);
+        setLoading(false);
+      } else {
+        setLoading(false);
+        console.log("Signin success", data);
+        alert("Signup success");
+      }
     } catch (error) {
+      alert("signup failed try again");
       console.log(error);
     }
   };
@@ -88,7 +92,12 @@ const Signup = ({navigation}) => {
           }}
         >
           Already Joined?{" "}
-          <Text onPress={() => navigation.navigate("Signin")} style={{ fontSize: 12, color: "red" }}>Sign In</Text>
+          <Text
+            onPress={() => navigation.navigate("Signin")}
+            style={{ fontSize: 12, color: "red" }}
+          >
+            Sign In
+          </Text>
         </Text>
       </View>
     </KeyboardAwareScrollView>
