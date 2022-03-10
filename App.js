@@ -5,16 +5,22 @@ import Signin from "./screens/Signin";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { AuthProvider } from "./context/auth";
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer >
-      <Stack.Navigator initialRouteName="Signin" screenOptions={{headerShown:false}} >
-        <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Signin" component={Signin} />
-      </Stack.Navigator>
+    <NavigationContainer>
+      <AuthProvider>
+        <Stack.Navigator
+          initialRouteName="Signin"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Signup" component={Signup} />
+          <Stack.Screen name="Signin" component={Signin} />
+        </Stack.Navigator>
+      </AuthProvider>
     </NavigationContainer>
   );
 };
