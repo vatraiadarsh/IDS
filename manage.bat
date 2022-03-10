@@ -1,3 +1,3 @@
 git add .
-git commit -m "Sign in page"
+git commit -m "managing navigation"
 git push -u origin main

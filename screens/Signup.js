@@ -7,7 +7,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 
 import axios from "axios";
 
-const Signup = () => {
+const Signup = ({navigation}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -83,7 +83,7 @@ const Signup = () => {
           }}
         >
           Already Joined?{" "}
-          <Text style={{ fontSize: 12, color: "red" }}>Sign In</Text>
+          <Text onPress={() => navigation.navigate("Signin")} style={{ fontSize: 12, color: "red" }}>Sign In</Text>
         </Text>
       </View>
     </KeyboardAwareScrollView>
