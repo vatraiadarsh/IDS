@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, View, ScrollView } from "react-native";
 import SubmitButton from "../Components/Auth/SubmitButton";
 import UserInput from "../Components/Auth/UserInput";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import axios from "axios";
 
@@ -28,14 +29,15 @@ const Signup = ({ navigation }) => {
         name,
         email,
         password,
-      }); 
+      });
       if (data.error) {
         alert(data.error);
         setLoading(false);
       } else {
+        // save response in async storage
+        await AsyncStorage.setItem("@auth", JSON.stringify(data));
         setLoading(false);
-        console.log("Signin success", data);
-        alert("Signup success");
+        alert("Sign up successful");
       }
     } catch (error) {
       alert("signup failed try again");
