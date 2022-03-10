@@ -21,7 +21,7 @@ const Signin = ({navigation}) => {
       return;
     }
     try {
-      const { data } = await axios.post("http://localhost:8000/api/Signin", {
+      const { data } = await axios.post("http://192.168.1.12:8000/api/signin", {
         email,
         password,
       });

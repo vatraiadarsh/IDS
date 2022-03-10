@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { Text, View, ScrollView } from "react-native";
 import SubmitButton from "../Components/Auth/SubmitButton";
 import UserInput from "../Components/Auth/UserInput";
-import CircleLogo from "../Components/Auth/CircleLogo";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import axios from "axios";
 
+import CircleLogo from "../Components/Auth/CircleLogo";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
+
 const Signup = ({navigation}) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState("adarsha");
+  const [email, setEmail] = useState("adarsh@gmail.com");
+  const [password, setPassword] = useState("ajsdjlak");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
@@ -18,15 +20,18 @@ const Signup = ({navigation}) => {
     if (!name || !email || !password) {
       alert("All fields are required");
       setLoading(false);
-      console.log(name, email, password);
+     
       return;
     }
     try {
-      const { data } = await axios.post("http://localhost:8000/api/signup", {
+      const { data } = await axios.post("http://192.168.1.12:8000/api/signup", {
         name,
         email,
         password,
       });
+
+      console.log("Signup request",name, email, password);
+      setLoading(false);
       console.log("Signin success", data);
       alert("Signup success");
     } catch (error) {

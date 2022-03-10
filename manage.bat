@@ -1,3 +1,3 @@
 git add .
-git commit -m "working with backend"
+git commit -m "connected client & server"
 git push -u origin main
