@@ -7,28 +7,26 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 
 import axios from "axios";
 
-const Signup = () => {
-  const [name, setName] = useState("");
+const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
     setLoading(true);
-    if (!name || !email || !password) {
+    if (!email || !password) {
       alert("All fields are required");
       setLoading(false);
-      console.log(name, email, password);
+      console.log( email, password);
       return;
     }
     try {
-      const { data } = await axios.post("http://localhost:8000/api/signup", {
-        name,
+      const { data } = await axios.post("http://localhost:8000/api/Signin", {
         email,
         password,
       });
       console.log("Signin success", data);
-      alert("Signup success");
+      alert("Signin success");
     } catch (error) {
       console.log(error);
     }
@@ -43,17 +41,11 @@ const Signup = () => {
             fontSize: 24,
             color: "#333",
             textAlign: "center",
+            marginVertical:25,
           }}
         >
-          Please Sign up
+          Please Sign in
         </Text>
-        <UserInput
-          value={name}
-          setValue={setName}
-          autoCorrect={false}
-          autoCapitalize="words"
-          name="Name"
-        />
         <UserInput
           value={email}
           setValue={setEmail}
@@ -72,7 +64,7 @@ const Signup = () => {
         <SubmitButton
           handleSubmit={handleSubmit}
           loading={loading}
-          title="Sign up"
+          title="Sign in"
         />
 
         <Text
@@ -82,12 +74,14 @@ const Signup = () => {
             color: "black",
           }}
         >
-          Already Joined?{" "}
-          <Text style={{ fontSize: 12, color: "red" }}>Sign In</Text>
+          Not yet registered?{" "}
+          <Text style={{ fontSize: 12, color: "red" }}>Sign Up</Text>
+          
         </Text>
+        <Text style={{ marginVertical:25, textAlign: "center",fontSize: 12, color: "orange" }}>Forgot Password?</Text>
       </View>
     </KeyboardAwareScrollView>
   );
 };
 
-export default Signup;
+export default Signin;

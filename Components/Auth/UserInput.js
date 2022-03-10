@@ -11,7 +11,7 @@ function UserInput({
 }) {
   return (
     <View style={{ marginHorizontal: 24 }}>
-      <Text style={{ fontSize: 14, color: "#DDDDDD" }}>{name}</Text>
+      <Text style={{ fontSize: 14, color: "black" }}>{name}</Text>
       <TextInput
         autiCorrec={false}
         autoCapitalize={autoCapitalize}
