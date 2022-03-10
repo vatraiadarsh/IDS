@@ -1,3 +1,3 @@
 git add .
-git commit -m "refactoring navigation routes"
+git commit -m "impl signout"
 git push -u origin main
