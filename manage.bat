@@ -1,3 +1,3 @@
 git add .
-git commit -m "added tabs and fa icons "
+git commit -m "refactoring navigation routes"
 git push -u origin main
