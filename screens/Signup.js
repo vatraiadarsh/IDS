@@ -11,9 +11,9 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { AuthContext } from "../context/auth";
 
 const Signup = ({ navigation }) => {
-  const [name, setName] = useState("adarsha");
-  const [email, setEmail] = useState("adarsh@gmail.com");
-  const [password, setPassword] = useState("ajsdjlak");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   //context

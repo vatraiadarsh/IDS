@@ -11,8 +11,8 @@ import axios from "axios";
 import { AuthContext } from "../context/auth";
 
 const Signin = ({ navigation }) => {
-  const [email, setEmail] = useState("apple@gmail.com");
-  const [password, setPassword] = useState("apple123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   //context

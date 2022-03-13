@@ -10,7 +10,7 @@ const SubmitButton = ({title,handleSubmit,loading}) => (
       marginHorizontal: 25,
       borderRadius: 24,
       alignItems: "center",
-      backgroundColor: "#1ceb4c",
+      backgroundColor: "green",
       padding: 15,
     }}
   >
