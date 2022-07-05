@@ -1,5 +1,13 @@
 # Runing an app
 
+
+
+
+https://user-images.githubusercontent.com/33037244/177277032-7a8c2f45-5c77-450c-a15c-8f5c7ac893f5.mp4
+
+
+
+
 clone the app using command 
 
 ```git
