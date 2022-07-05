@@ -1,33 +1,24 @@
 {
-  "name": "parallaxsolutions",
+  "name": "ids",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "description": "Open Source IDS System",
+  "main": "index.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.16.1",
-    "@react-navigation/native": "^6.0.8",
-    "@react-navigation/native-stack": "^6.5.0",
-    "axios": "^0.26.1",
-    "expo": "~44.0.0",
-    "expo-status-bar": "~1.2.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "0.64.3",
-    "react-native-elements": "^3.4.2",
-    "react-native-keyboard-aware-scroll-view": "^0.9.5",
-    "react-native-safe-area-context": "^3.1.9",
-    "react-native-screens": "^3.13.1",
-    "react-native-vector-icons": "^9.1.0",
-    "react-native-web": "0.17.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.9"
-  },
-  "private": true
+    "bcryptjs": "^2.4.3",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.3",
+    "mongoose": "^6.3.3",
+    "nodemailer": "^6.7.5",
+    "nodemon": "^2.0.16",
+    "request-promise": "^4.2.6",
+    "snort-socket": "^0.0.22-a"
+  }
 }

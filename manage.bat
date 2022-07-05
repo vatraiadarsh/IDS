@@ -1,3 +1,3 @@
 git add .
-git commit -m "added readme"
-git push -u origin hybrid
+git commit -m "ios update"
+git push -u origin ios
